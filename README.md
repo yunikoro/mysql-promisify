@@ -144,7 +144,7 @@ Simulate the query substitution for debug
 })();
 ```
 
-Transaction, becare that some sql will trigger implicit commit immediately
+Transaction, becare that some sql will trigger implicit commit immediately and some engine do not support transaction(eg. MYISAM)
 
 fyr: 
 

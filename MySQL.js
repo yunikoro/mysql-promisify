@@ -25,11 +25,11 @@ class MySQL {
         if (isPoolConnection(options)) {
             database = options;
         } else {
-            options.queryFormat = MySQL.queryFormat;
-
-            this._options = Object.assign({}, options);
+            this._options = Object.assign({
+                queryFormat: MySQL.queryFormat
+            }, options);
             const host = connections[options.host] = connections[options.host] || Object.create(null);
-            database = host[options.database] = host[options.database] || mysql.createPool(options);
+            database = host[options.database] = host[options.database] || mysql.createPool(this._options);
         }
 
         this._connection = database;
